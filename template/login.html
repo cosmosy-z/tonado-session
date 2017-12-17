@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        <p><input name = "user" type="text" placeholder="用户"></p>
+        <p><input name = "pwd" type="text" placeholder="密码"></p>
+        <p>
+            <input name="code" type="text" placeholder="验证码">
+
+            <!--这个src指向的是http请求的一个路由，这个路由应该帮我们生成图片并且返回这个图片，由CheckCodeHandler来处理-->
+            <img src="/check_code" onclick="ChangeCode()" id="imgCode">
+        </p>
+        <input type="submit" value="submit"><span color="red">{{status}}</span>
+    </form>
+
+<script type="text/javascript">
+    function ChangeCode() {
+        var code = document.getElementById('imgCode');
+        code.src += "?"
+//        加问号让它不断刷新
+    }
+</script>
+
+</body>
+</html>
